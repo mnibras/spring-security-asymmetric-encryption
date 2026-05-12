@@ -21,4 +21,5 @@ public interface TodoRepository extends JpaRepository<Todo, String> {
             WHERE t.endDate >= CURRENT_DATE AND t.endTime >= CURRENT_TIME
             """)
     List<Todo> findAllDueTodos(String userId);
+
 }

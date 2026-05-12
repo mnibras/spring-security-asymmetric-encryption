@@ -28,7 +28,7 @@ public class Todo extends BaseEntity {
     @Column(name = "description", nullable = false)
     private String description;
 
-    @Column(name = "satrt_date", nullable = false)
+    @Column(name = "start_date", nullable = false)
     private LocalDate startDate;
 
     @Column(name = "end_date", nullable = false)

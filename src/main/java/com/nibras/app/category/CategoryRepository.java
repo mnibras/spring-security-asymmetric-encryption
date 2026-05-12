@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CategoryRepository extends JpaRepository<Category, String> {
+
     @Query("""
             SELECT COUNT (c) > 0
             FROM Category c
@@ -27,4 +28,5 @@ public interface CategoryRepository extends JpaRepository<Category, String> {
             AND (c.createdBy = :userId OR c.createdBy = 'APP')
             """)
     Optional<Category> findByIdAndUserId(String categoryId, String userId);
+
 }
