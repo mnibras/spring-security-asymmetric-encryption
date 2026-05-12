@@ -1,5 +1,6 @@
 package com.nibras.app.user;
 
+import com.nibras.app.auth.request.RegistrationRequest;
 import com.nibras.app.user.request.ProfileUpdateRequest;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
@@ -11,6 +12,21 @@ import org.springframework.stereotype.Service;
 public class UserMapper {
 
     private final PasswordEncoder passwordEncoder;
+
+    public User toUser(final RegistrationRequest request) {
+        return User.builder()
+                .firstName(request.getFirstName())
+                .lastName(request.getLastName())
+                .email(request.getEmail())
+                .phoneNumber(request.getPhoneNumber())
+                .password(this.passwordEncoder.encode(request.getPassword()))
+                .enabled(true)
+                .locked(false)
+                .credentialsExpired(false)
+                .emailVerified(false)
+                .phoneVerified(false)
+                .build();
+    }
 
     public void mergeUserInfo(final User user, final ProfileUpdateRequest request) {
         if (StringUtils.isNotBlank(request.getFirstName()) && !user.getFirstName().equals(request.getFirstName())) {
