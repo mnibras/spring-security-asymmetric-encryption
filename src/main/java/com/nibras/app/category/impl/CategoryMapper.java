@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CategoryMapper {
+
     public Category toCategory(final CategoryRequest request) {
         return Category.builder()
                        .name(request.getName())
@@ -27,6 +28,7 @@ public class CategoryMapper {
 
     public CategoryResponse toCategoryResponse(final Category category) {
         return CategoryResponse.builder()
+                                .id(category.getId())
                                .name(category.getName())
                                .description(category.getDescription())
                                .todoCount(category.getTodos().size())

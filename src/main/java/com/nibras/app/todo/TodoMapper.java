@@ -11,14 +11,14 @@ import org.springframework.stereotype.Service;
 public class TodoMapper {
     public Todo toTodo(final TodoRequest request) {
         return Todo.builder()
-                   .title(request.getTitle())
-                   .description(request.getDescription())
-                   .startDate(request.getStartDate())
-                   .endDate(request.getEndDate())
-                   .startTime(request.getStartTime())
-                   .endTime(request.getEndTime())
-                   .done(false)
-                   .build();
+                .title(request.getTitle())
+                .description(request.getDescription())
+                .startDate(request.getStartDate())
+                .endDate(request.getEndDate())
+                .startTime(request.getStartTime())
+                .endTime(request.getEndTime())
+                .done(false)
+                .build();
     }
 
     public void mergerTodo(final Todo todoToUpdate, final TodoUpdateRequest request) {
@@ -32,20 +32,21 @@ public class TodoMapper {
 
     public TodoResponse toTodoResponse(final Todo todo) {
         return TodoResponse.builder()
-                           .id(todo.getId())
-                           .title(todo.getTitle())
-                           .description(todo.getDescription())
-                           .startDate(todo.getStartDate())
-                           .endDate(todo.getEndDate())
-                           .startTime(todo.getStartTime())
-                           .endTime(todo.getEndTime())
-                           .done(todo.isDone())
-                           .category(
-                                   CategoryResponse.builder()
-                                                   .name(todo.getCategory().getName())
-                                                   .description(todo.getCategory().getDescription())
-                                                   .build()
-                           )
-                           .build();
+                .id(todo.getId())
+                .title(todo.getTitle())
+                .description(todo.getDescription())
+                .startDate(todo.getStartDate())
+                .endDate(todo.getEndDate())
+                .startTime(todo.getStartTime())
+                .endTime(todo.getEndTime())
+                .done(todo.isDone())
+                .category(
+                        CategoryResponse.builder()
+                                .id(todo.getCategory().getId())
+                                .name(todo.getCategory().getName())
+                                .description(todo.getCategory().getDescription())
+                                .build()
+                )
+                .build();
     }
 }
