@@ -20,6 +20,7 @@ public enum ErrorCode {
     BAD_CREDENTIALS("BAD_CREDENTIALS", "Username and / or password is incorrect", UNAUTHORIZED),
     INTERNAL_EXCEPTION("INTERNAL_EXCEPTION", "An internal exception occurred, please try again or contact the admin", INTERNAL_SERVER_ERROR),
     USERNAME_NOT_FOUND("USERNAME_NOT_FOUND", "Cannot find user with the provided username", NOT_FOUND),
+    USER_NOT_AUTHORIZED("USER_NOT_AUTHORIZED", "You are not authorized to perform this operation", UNAUTHORIZED),
     CATEGORY_ALREADY_EXISTS_FOR_USER("CATEGORY_ALREADY_EXISTS_FOR_USER", "Category already exists for this user", CONFLICT);
 
     private final String code;

@@ -103,7 +103,8 @@ public class ApplicationExceptionHandler {
     public ResponseEntity<ErrorResponse> handleException(final AuthorizationDeniedException exception) {
         log.debug(exception.getMessage(), exception);
         final ErrorResponse response = ErrorResponse.builder()
-                .message("You are not authorized to perform this operation")
+                .code(USER_NOT_AUTHORIZED.getCode())
+                .message(USER_NOT_AUTHORIZED.getDefaultMessage())
                 .build();
         return new ResponseEntity<>(response, UNAUTHORIZED);
     }
