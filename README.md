@@ -17,5 +17,3 @@ openssl rsa -pubout -in private_key.pem -out public_key.pem
 Now you have:
 - `private_key.pem` — used to **sign** JWTs
 - `public_key.pem` — used to **verify** JWTs
-
-
